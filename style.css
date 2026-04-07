@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1a1a3a, #0b0b1f);
+  color: white;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.logo {
+  width: 170px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  margin: 10px 0;
+  font-size: 36px;
+}
+
+header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== TEXTAREA ===== */
+textarea {
+  width: 100%;
+  height: 250px;
+  background: #020617;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+}
+
+/* ===== INPUT ===== */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #020617;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  padding: 12px 18px;
+  margin-top: 10px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  margin-top: 10px;
+}
+
+/* ===== DOWNLOAD DROPDOWN ===== */
+#dropdownMenu {
+  background: #111827 !important;
+  color: white;
+  border: none !important;
+}
+
+#dropdownMenu div {
+  padding: 10px;
+}
+
+#dropdownMenu div:hover {
+  background: #1f2937;
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard {
+  display: flex;
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* .card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  background: #111827;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+} */
+
+/* ===== DASHBOARD CARDS (MODERN) ===== */
+.card {
+  flex: 1;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 
+    0 10px 25px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ Hover Effect */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.8),
+    0 0 15px rgba(255,255,255,0.1);
+}
+
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+
+.card h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* CARD COLORS */
+/* 🔴 Total Issues */
+.card:nth-child(1) {
+  background: linear-gradient(135deg, #7f1d1d, #ef4444);
+}
+
+/* 🟠 High Severity */
+.card:nth-child(2) {
+  background: linear-gradient(135deg, #78350f, #f97316);
+}
+
+/* 🟢 Confidence */
+.card:nth-child(3) {
+  background: linear-gradient(135deg, #064e3b, #10b981);
+}
+
+/* ===== PREVIEW ===== */
+iframe {
+  width: 100%;
+  height: 350px;
+  display: block;
+  margin: 20px auto;
+  border: none;
+  border-radius: 12px;
+  background: white;
+}
+
+/* ===== RESULTS ===== */
+#results {
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #111827;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+  max-width: 1200px;
+  margin: 30px auto 10px;
+}
+
+/* ===== TOAST ===== */
+#toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  display: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+
+
+/* ===== RESULTS GRID ===== */
+#results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  
+}
+
+/* ===== ISSUE CARD ===== */
+.issue {
+  background: linear-gradient(145deg, #0f172a, #111827);
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  
+}
+
+.issue:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== TEXT ===== */
+.issue b {
+  font-size: 16px;
+  color: white;
+}
+
+.issue span {
+  display: block;
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  iframe {
+    width: 95%;
+  }
+}
+
+
+
+
+
