@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Dark Pattern Detection Tool</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+</head>
+
+<body>
+
+<header>
+   <img src="img/Patternlint-logo.png" alt="Logo" class="logo">
+<h1>Dark Pattern Detection Tool</h1>
+<p>Static analysis tool for detecting manipulative UI patterns</p>
+</header>
+
+<div class="container">
+
+<h2>Paste HTML</h2>
+
+<textarea id="htmlInput"></textarea>
+
+<div class="controls">
+
+<input type="text" id="urlInput" placeholder="Enter website URL">
+
+<button onclick="scanHTML()">Scan HTML</button>
+
+<button onclick="scanURL()">Scan Website</button>
+
+<!-- Hidden textarea (your existing) -->
+<textarea id="htmlInput" style="display:none;"></textarea>
+
+<!-- ✅ Toast UI -->
+<div id="toast" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  display: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+"></div>
+
+
+
+<!-- <select id="format">
+  <option value="json">Download as JSON</option>
+  <option value="pdf">Download as PDF</option>
+</select> -->
+
+
+<!-- <button onclick="downloadReport()">Download Report</button> -->
+
+<div style="position: relative; display: inline-block;">
+
+  <!-- Button -->
+  <button onclick="toggleDropdown()" 
+          style="padding:12px 15px; border-radius:8px; cursor:pointer;">
+    Download Report ▼
+  </button>
+
+  <!-- Dropdown -->
+  <div id="dropdownMenu" 
+       style="display:none; position:absolute; top:40px; left:0; 
+              background:white; border:1px solid #ccc; 
+              border-radius:6px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+
+    <div onclick="downloadReport('json')" 
+         style="padding:10px; cursor:pointer; border-bottom:1px solid #eee;">
+      Download as JSON
+    </div>
+
+    <div onclick="downloadReport('pdf')" 
+         style="padding:10px; cursor:pointer;">
+      Download as PDF
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="dashboard">
+
+<div class="card">
+<h3 id="issueCount">0</h3>
+<p>Total Issues</p>
+</div>
+
+<div class="card">
+<h3 id="highCount">0</h3>
+<p>High Severity</p>
+</div>
+
+<div class="card">
+<h3 id="confidenceScore">0%</h3>
+<p>Average Confidence</p>
+</div>
+
+</div>
+
+<h2>HTML Preview</h2>
+
+<iframe id="preview"></iframe>
+
+<h2>Detected Issues</h2>
+
+<div id="results"></div>
+
+</div>
+
+<script src="ml.js"></script>
+<script src="rules.js"></script>
+<script src="script.js"></script>
+
+
+<!-- ✅ Add jsPDF here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+
+</html>
